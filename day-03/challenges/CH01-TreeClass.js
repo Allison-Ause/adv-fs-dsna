@@ -1,20 +1,19 @@
-## Binary Node Add
-
-## Challenge
-
-Implement the add method for this `BinaryTreeNode` class:
-
-```js
 class BinaryTreeNode {
   constructor(value) {
     this.value = value;
     this.left = null;
     this.right = null;
   }
+}
+
+class BinarySearchTree {
+  constructor() {
+    this.root = null;
+  }
 
   add(node) {
     // make a new node, check to see if it has any roots. If it doesn't, it becomes the base of our tree.
-    let newNode = new BinaryTreeNode(value);
+    let newNode = new BinaryTreeNode(node);
     if (this.root === null) {
       this.root = newNode;
       return this;
@@ -22,49 +21,33 @@ class BinaryTreeNode {
     // currentNode is our root (est. above from newNode)
     let currentNode = this.root;
     while (currentNode) {
-      if (value < currentNode.value) {
-        // if there's no node to the left
+      // if the argument node is less that the current node's value:
+      if (node < currentNode.value) {
+        // and if there's no child node to the left
         if (currentNode.left === null) {
-          // create a new node as the left-hand child of the currentNode
+          // create a new node as the left-hand child of the currentNode and return it
           currentNode.left = newNode;
           return this;
         }
         // change the current node to be one node down (the new left node we made)
         currentNode = currentNode.left;
       } else {
-        // value > currentNode.value
+        // argument node > currentNode.value
+        // and if there is no right hand node
         if (currentNode.right === null) {
+          // create a new child node to the right
           currentNode.right = newNode;
           return this;
         }
+        // change the current node to be the right one we just created (walking down the tree)
         currentNode = currentNode.right;
       }
     }
   }
 }
-```
 
-Keep in mind this is a recursive operation.
-
-## Test Cases
-
-                 B
-              |     |
-
-```js
-const B = new BinaryTreeNode('B');
-const A = new BinaryTreeNode('A');
-const C = new BinaryTreeNode('C');
-const D = new BinaryTreeNode('D');
-
-// B will be the root of the tree:
-B.add(A);
-B.add(D);
-B.add(C);
-```
-
-![BinaryTreeNode add](binary-node-add.png)
-
-## Note
-
-FYI: the shape of a Binary Tree is dependant on order of construction.
+const newTree = new BinarySearchTree();
+newTree.add('B');
+newTree.add('A');
+newTree.add('D');
+newTree.add('C');
