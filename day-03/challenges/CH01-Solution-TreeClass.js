@@ -13,7 +13,7 @@ class BinarySearchTree {
 
   add(node) {
     // make a new node, check to see if it has any roots. If it doesn't, it becomes the base of our tree.
-    let newNode = new BinaryTreeNode(node);
+    const newNode = new BinaryTreeNode(node);
     if (this.root === null) {
       this.root = newNode;
       return this;

@@ -67,9 +67,10 @@ Jim.add({
   address: '4242 Adams Ln',
 });
 
-let root = Jim;
+const root = Jim;
 // "root" is the node at the root of the tree (the tree)
-let person = root.findPerson('Douglas');
+const person = root.findPerson('Douglas');
+console.log(person);
 // person looks like
 // {
 //   name: 'Nelson',
@@ -77,5 +78,6 @@ let person = root.findPerson('Douglas');
 //   address: '123 Main St'
 // }
 
-let person2 = root.findPerson('Foo');
+const person2 = root.findPerson('Foo');
+console.log(person2);
 // person2 is null
