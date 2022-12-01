@@ -12,35 +12,7 @@ class BinaryTreeNode {
     this.right = null;
   }
 
-  add(node) {
-    // make a new node, check to see if it has any roots. If it doesn't, it becomes the base of our tree.
-    let newNode = new BinaryTreeNode(value);
-    if (this.root === null) {
-      this.root = newNode;
-      return this;
-    }
-    // currentNode is our root (est. above from newNode)
-    let currentNode = this.root;
-    while (currentNode) {
-      if (value < currentNode.value) {
-        // if there's no node to the left
-        if (currentNode.left === null) {
-          // create a new node as the left-hand child of the currentNode
-          currentNode.left = newNode;
-          return this;
-        }
-        // change the current node to be one node down (the new left node we made)
-        currentNode = currentNode.left;
-      } else {
-        // value > currentNode.value
-        if (currentNode.right === null) {
-          currentNode.right = newNode;
-          return this;
-        }
-        currentNode = currentNode.right;
-      }
-    }
-  }
+  add(node) {}
 }
 ```
 
