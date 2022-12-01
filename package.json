@@ -1,0 +1,27 @@
+{
+  "name": "adv-fs-dsna-challenges",
+  "version": "1.0.0",
+  "description": "Data Structure & Algorithm Challenges",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "npm run test -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alchemycodelab/adv-fs-dsna-challenges.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alchemycodelab/adv-fs-dsna-challenges/issues"
+  },
+  "homepage": "https://github.com/alchemycodelab/adv-fs-dsna-challenges#readme",
+  "dependencies": {
+    "jest": "^29.0.3"
+  },
+  "devDependencies": {
+    "@babel/eslint-plugin": "^7.19.1"
+  }
+}
