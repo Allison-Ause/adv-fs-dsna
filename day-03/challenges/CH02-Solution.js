@@ -12,7 +12,6 @@ class PersonTreeNode {
   add(node) {
     // value = 'B'
     let currentNode = this;
-    console.log('this', this);
     while (node) {
       if (node.value > currentNode.value) {
         if (currentNode.right === null) {
@@ -33,22 +32,19 @@ class PersonTreeNode {
   }
 
   findPerson(name) {
-    let currentNode = this;
-
     // if name matches, stop
-    if (name === currentNode.value) {
+    if (name === this.value) {
       return this.person;
     } else {
       // otherwise if name is less, drop into the left side and search again
-      if (name < currentNode.value) {
-        currentNode = currentNode.left;
-        return this.findPerson(currentNode.value);
+      if (this.left && name < this.value) {
+        return this.left.findPerson(name);
       } // if name is bigger, drop into the right side and search again
-      else if (name > currentNode.value) {
-        currentNode = currentNode.right;
-        return this.findPerson(currentNode.value);
+      else if (this.right && name > this.value) {
+        return this.right.findPerson(name);
         // if you can never find it, stop completely and return null
       } else {
+        console.log('No Matches, friend!');
         return null;
       }
     }
@@ -61,11 +57,19 @@ const Jim = new PersonTreeNode({
   address: '666 Devil Dr',
 });
 
-Jim.add({
+const Douglas = new PersonTreeNode({
   name: 'Douglas',
   phone: '502-2257',
   address: '4242 Adams Ln',
 });
+
+const Zephyr = new PersonTreeNode({
+  name: 'Zephyr',
+  phone: '502-2257',
+  address: '4242 Adams Ln',
+});
+Jim.add(Douglas);
+Jim.add(Zephyr);
 
 const root = Jim;
 // "root" is the node at the root of the tree (the tree)
@@ -78,6 +82,5 @@ console.log(person);
 //   address: '123 Main St'
 // }
 
-const person2 = root.findPerson('Foo');
-console.log(person2);
+// const person2 = root.findPerson('Foo');
 // person2 is null
